@@ -18,8 +18,14 @@
 
 # kwa(string="blue", number=1, float=0.5, boolean=True)
 
-def kwa(string, number, float, boolean):
-    print(string, number, float, boolean)
+# def kwa(string, number, float, boolean):
+#     print(string, number, float, boolean)
 
-inputs = {'string': "blue", 'number': 1, 'float': 0.5, 'boolean': True}
-kwa(**inputs)
+# inputs = {'string': "blue", 'number': 1, 'float': 0.5, 'boolean': True}
+# kwa(**inputs)
+
+def combine(*args, **kwargs):
+    print(args)
+    print(kwargs)
+
+combine(1, 2, 3, 4, 5, 6, 7, 8, string="hello world", boolean=False)
