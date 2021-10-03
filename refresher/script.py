@@ -13,7 +13,13 @@
 # print(excecuted)
 
 ###############################################################################
-def kwa(**kwargs):
-    print(kwargs)
+# def kwa(**kwargs):
+#     print(kwargs)
 
-kwa(color="blue", number="1", place="the moon")
+# kwa(string="blue", number=1, float=0.5, boolean=True)
+
+def kwa(string, number, float, boolean):
+    print(string, number, float, boolean)
+
+inputs = {'string': "blue", 'number': 1, 'float': 0.5, 'boolean': True}
+kwa(**inputs)
