@@ -7,13 +7,15 @@ Please press the 1, 2 or 3 keys to select one of the following options:
 
 "1" to add a new entry
 "2" to view entries
-"3" to exit
+"3" to exit\n
 """
 
-while user_input := input(menu) != "3":
+print(welcome_message)
+
+while (user_input := input(menu)) != "3":
     if user_input == "1":
-        print("Adding your entry...")
+        add_entry()
     elif user_input == "2":
-        print("viewing")
+        view_entries()
     else:
         print("Invalid option, please try again.")
