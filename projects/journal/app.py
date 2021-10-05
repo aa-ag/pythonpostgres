@@ -14,8 +14,15 @@ print(welcome_message)
 
 while (user_input := input(menu)) != "3":
     if user_input == "1":
-        add_entry()
+        # get info from user
+        entry_content = input("what have you learned today?  ")
+        entry_date = input("Enter today's date:  ")
+        add_entry(entry_content, entry_date)
+
     elif user_input == "2":
-        view_entries()
+        entries = get_entries()
+        for entry in entries:
+            print(f'************\n{entry["date"]}\n{entry["content"]}\n\n')
+
     else:
         print("Invalid option, please try again.")
