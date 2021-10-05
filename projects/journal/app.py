@@ -1,3 +1,5 @@
+from database import add_entry, view_entries
+
 welcome_message = "Hi, welcome to your journal!"
 
 menu = """
