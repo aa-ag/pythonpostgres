@@ -18,8 +18,8 @@ def prompt_new_entry():
 
 def view_entries(entries):
     for entry in entries:
-        print(f"{entry['date']}\n{entry['content']}\n\n")
-
+        print(f'\n************\n{entry["date"]}\n{entry["content"]}\n\n')
+            
 
 print(welcome_message)
 
@@ -32,9 +32,8 @@ while (user_input := input(menu)) != "3":
         
 
     elif user_input == "2":
-        entries = get_entries()
-        for entry in entries:
-            print(f'************\n{entry["date"]}\n{entry["content"]}\n\n')
+        view_entries(get_entries())
 
     else:
         print("Invalid option, please try again.")
+print("Bye!")
