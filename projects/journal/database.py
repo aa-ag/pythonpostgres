@@ -3,6 +3,7 @@ import sqlite3
 
 # create a connection to the sqlite connection
 connection = sqlite3.connect("data.db")
+connection.row_factory = sqlite3.Row
 
 
 def create_table():
@@ -26,5 +27,4 @@ def get_entries():
     # cursor.execute("SELECT * FROM entries;")
     ### alternatively:
     cursor = connection.execute("SELECT * FROM entries;")
-    # return a list of all results from query
-    cursor.fetchall()
+    return cursor

@@ -1,4 +1,4 @@
-from database import add_entry, get_entries
+from database import add_entry, get_entries, create_table
 
 welcome_message = "Hi, welcome to your journal!"
 
@@ -22,6 +22,7 @@ def view_entries(entries):
             
 
 print(welcome_message)
+create_table()
 
 ###------> driver code (ugly script cause following class)
 while (user_input := input(menu)) != "3":
