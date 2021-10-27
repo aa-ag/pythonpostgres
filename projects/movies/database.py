@@ -1,3 +1,13 @@
+############------------ IMPORTS ------------############
+import datetime
+import sqlite3
+
+
+############------------ GLOBAL ------------############
+connection = sqlite3.connect("data.db")
+
+
+
 ############------------ QUERIES ------------############
 # query to create `movies` table
 CREATE_MOVIES_TABLE = """
