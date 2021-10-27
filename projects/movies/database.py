@@ -12,3 +12,8 @@ CREATE TABLE IF NOT EXISTS movies (
 INSERT_MOVIES = """
 INSERT INTO movies (title, released_timestamp, watched) VALUES (?, ?, 0);
 """
+
+# query to read/display all movies saved into the `movies` table
+SELECT_ALL_MOVIES = """
+SELECT * FROM movies;
+"""
