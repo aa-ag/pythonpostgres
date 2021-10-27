@@ -1,4 +1,4 @@
-############### QUERIES
+############------------ QUERIES ------------############
 # query to create `movies` table
 CREATE_MOVIES_TABLE = """
 CREATE TABLE IF NOT EXISTS movies (
@@ -21,4 +21,9 @@ SELECT * FROM movies;
 # query to read/display movies that meet a timestamp condition
 SELECT_UPCOMING_MOVIES = """
 SELECT * FROM movies WHERE release_timestamp > ?;
+"""
+
+# query to read/display moves that have already been watched
+SELECT_WATCHED_MOVIES = """
+SELECT * FROM movies WHERE watched = 1;
 """
