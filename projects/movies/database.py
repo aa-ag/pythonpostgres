@@ -7,6 +7,26 @@ import sqlite3
 connection = sqlite3.connect("data.db")
 
 
+############------------ FUNCTIONS ------------############
+def create_tables():
+    pass
+
+
+def add_movie(title, release_timestamp):
+    pass
+
+
+def get_movie(upcoming=False):
+    pass
+
+
+def watch_movie(title):
+    pass
+
+
+def get_watched_movies():
+    pass
+
 
 ############------------ QUERIES ------------############
 # query to create `movies` table
