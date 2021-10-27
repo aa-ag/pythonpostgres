@@ -17,3 +17,8 @@ INSERT INTO movies (title, released_timestamp, watched) VALUES (?, ?, 0);
 SELECT_ALL_MOVIES = """
 SELECT * FROM movies;
 """
+
+# query to read/display movies that meet a timestamp condition
+SELECT_UPCOMING_MOVIES = """
+SELECT * FROM movies WHERE release_timestamp > ?;
+"""
