@@ -1,4 +1,6 @@
 ############------------ IMPORTS ------------############
+import datetime
+from sqlite3.dbapi2 import Timestamp
 import database as db
 
 
@@ -18,6 +20,9 @@ Please select one of the following options:
 def add_movie():
     title = input("Movie title:  ")
     release_date = input("Release date (dd/mm/yyyy):  ")
+    parsed_date = datetime.datetime.strptime(release_date, "%d/%m/%Y")
+    timestamp = parsed_date.timestamp()
+    db.add_movie(title, timestamp)
 
 
 ############------------ DRIVER CODE ------------############
