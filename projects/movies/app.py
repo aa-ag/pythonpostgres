@@ -1,5 +1,8 @@
+############------------ IMPORTS ------------############
 import database as db
 
+
+############------------ GLOBAL ------------############
 menu = """
 Please select one of the following options:
 (1) Add new movie.
@@ -10,6 +13,14 @@ Please select one of the following options:
 (6) Exit.
 """
 
+
+############------------ FUNCTIONS ------------############
+def add_movie():
+    title = input("Movie title:  ")
+    release_date = input("Release date (dd/mm/yyyy):  ")
+
+
+############------------ DRIVER CODE ------------############
 welcome_message = "Welcome to the movies' watchlist app:"
 print(welcome_message)
 
