@@ -1,4 +1,4 @@
-# import database
+import database as db
 
 menu = """
 Please select one of the following options:
@@ -13,7 +13,7 @@ Please select one of the following options:
 welcome_message = "Welcome to the movies' watchlist app:"
 print(welcome_message)
 
-database.create_tables()
+db.create_tables()
 
 while (user_input := input(menu)) != "6":
     if user_input == "1":
