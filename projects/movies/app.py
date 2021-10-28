@@ -1,6 +1,5 @@
 ############------------ IMPORTS ------------############
 import datetime
-from sqlite3.dbapi2 import Timestamp
 import database as db
 
 
@@ -12,15 +11,15 @@ Please select one of the following options:
 (3) View all movies.
 (4) Match a movie.
 (5) View watched movies.
-(6) Exit.
+(6) Exit.\n\n
 """
 
 
 ############------------ FUNCTIONS ------------############
-def add_movie():
+def prompt_add_movie():
     title = input("Movie title:  ")
-    release_date = input("Release date (dd/mm/yyyy):  ")
-    parsed_date = datetime.datetime.strptime(release_date, "%d/%m/%Y")
+    release_date = input("Release date (dd-mm-YYYY):  ")
+    parsed_date = datetime.datetime.strptime(release_date, "%d-%m-%Y")
     timestamp = parsed_date.timestamp()
     db.add_movie(title, timestamp)
 
@@ -33,14 +32,14 @@ db.create_tables()
 
 while (user_input := input(menu)) != "6":
     if user_input == "1":
+        prompt_add_movie()
+    elif user_input == "2":
         pass
-    if user_input == "2":
+    elif user_input == "3":
         pass
-    if user_input == "3":
+    elif user_input == "4":
         pass
-    if user_input == "4":
-        pass
-    if user_input == "5":
+    elif user_input == "5":
         pass
     else:
         print("Invalid input, please try again.")
