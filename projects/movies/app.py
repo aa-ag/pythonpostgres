@@ -24,6 +24,13 @@ def prompt_add_movie():
     db.add_movie(title, timestamp)
 
 
+def print_movie_list(movies):
+    print("-- upcoming movies --")
+    for movie in movies:
+        print(f"{movie[0]} (on {movie[1]})")
+    print("------------\n\n")
+
+
 ############------------ DRIVER CODE ------------############
 welcome_message = "Welcome to the movies' watchlist app:"
 print(welcome_message)
