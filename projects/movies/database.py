@@ -19,7 +19,7 @@ def add_movie(title, release_timestamp):
         connection.execute(INSERT_MOVIES, (title, release_timestamp))
 
 
-def get_movie(upcoming=False):
+def get_movies(upcoming=False):
     with connection:
         cursor = connection.cursor()
         if upcoming:
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS movies (
 
 # query to insert one movie into `movies` table
 INSERT_MOVIES = """
-INSERT INTO movies (title, released_timestamp, watched) VALUES (?, ?, 0);
+INSERT INTO movies (title, release_timestamp, watched) VALUES (?, ?, 0);
 """
 
 # query to read/display all movies saved into the `movies` table
@@ -74,3 +74,6 @@ SELECT * FROM movies WHERE watched = 1;
 
 #  query to set watched movie
 SET_MOVIE_WATCHED = "UPDATE movies SET watched = 1 WHERE title = ?;"
+
+# query to delete a movie
+DELETE_MOVIE = "DELETE FROM movies WHERE title = ?;"
