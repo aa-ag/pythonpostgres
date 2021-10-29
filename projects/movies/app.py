@@ -55,25 +55,26 @@ def prompt_watch_movie():
 
 
 ############------------ DRIVER CODE ------------############
-welcome_message = "Welcome to the movies' watchlist app:"
-print(welcome_message)
+if __name__ == "__main__":    
+    welcome_message = "Welcome to the movies' watchlist app:"
+    print(welcome_message)
 
-db.create_tables()
+    db.create_tables()
 
-while (user_input := input(menu)) != "6":
-    if user_input == "1":
-        prompt_add_movie()
-    elif user_input == "2":
-        movies = db.get_movie(True)
-        print_movie_list(movies)
-    elif user_input == "3":
-        movies = db.get_movie()
-        print_movie_list("Upcoming", movies)
-    elif user_input == "4":
-        movies = db.get_movie()
-        print_movie_list("All", movies)
-    elif user_input == "5":
-        movies = db.get_watched_movies()
-        print_movie_list("Watched", movies)
-    else:
-        print("Invalid input, please try again.")
+    while (user_input := input(menu)) != "6":
+        if user_input == "1":
+            prompt_add_movie()
+        elif user_input == "2":
+            movies = db.get_movie(True)
+            print_movie_list(movies)
+        elif user_input == "3":
+            movies = db.get_movie()
+            print_movie_list("Upcoming", movies)
+        elif user_input == "4":
+            movies = db.get_movie()
+            print_movie_list("All", movies)
+        elif user_input == "5":
+            movies = db.get_watched_movies()
+            print_movie_list("Watched", movies)
+        else:
+            print("Invalid input, please try again.")
