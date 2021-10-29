@@ -54,7 +54,8 @@ while (user_input := input(menu)) != "6":
         movies = db.get_movie(True)
         print_movie_list(movies)
     elif user_input == "3":
-        pass
+        movies = db.get_movie()
+        print_movie_list("All", movies)
     elif user_input == "4":
         pass
     elif user_input == "5":
