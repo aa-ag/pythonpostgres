@@ -17,6 +17,11 @@ Please select one of the following options:
 
 ############------------ FUNCTIONS ------------############
 def prompt_add_movie():
+    '''
+     gets movie title from user, as well as a date in an expected format,
+     then parses input into a date value, and writes that data into the db;
+     raises an error of invalid format when that's the case
+    '''
     title = input("Movie title:  ")
     release_date = input("Release date (dd-mm-YYYY):  ")
     try:
@@ -28,6 +33,11 @@ def prompt_add_movie():
 
 
 def print_movie_list(movies):
+    '''
+     grabs all movie titles and their dates from the db,
+     transforms the date value into human readable format, and 
+     prints out results into the console
+    '''
     print("-- upcoming movies --\n")
     for movie in movies:
         movie_date = datetime.datetime.fromtimestamp(movie[1])
@@ -37,7 +47,10 @@ def print_movie_list(movies):
 
 
 def prompt_watch_movie():
-    movie_title = input("Enter a movie title you've already watched")
+    '''
+     udpates "watched" flag in db for movies already watched
+    '''
+    movie_title = input("Enter a movie title you've already watched: ")
     db.watch_movie(movie_title)
 
 
