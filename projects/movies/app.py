@@ -65,16 +65,16 @@ if __name__ == "__main__":
         if user_input == "1":
             prompt_add_movie()
         elif user_input == "2":
-            movies = db.get_movie(True)
+            movies = db.get_movies(True)
             print_movie_list(movies)
         elif user_input == "3":
-            movies = db.get_movie()
-            print_movie_list("Upcoming", movies)
+            movies = db.get_movies()
+            print_movie_list(movies)
         elif user_input == "4":
-            movies = db.get_movie()
-            print_movie_list("All", movies)
+            movies = db.get_movies()
+            prompt_watch_movie()
         elif user_input == "5":
             movies = db.get_watched_movies()
-            print_movie_list("Watched", movies)
+            print_movie_list(movies)
         else:
             print("Invalid input, please try again.")
