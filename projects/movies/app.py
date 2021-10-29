@@ -36,6 +36,11 @@ def print_movie_list(movies):
     print("------------\n\n")
 
 
+def prompt_watch_movie():
+    movie_title = input("Enter a movie title you've already watched")
+    db.watch_movie(movie_title)
+
+
 ############------------ DRIVER CODE ------------############
 welcome_message = "Welcome to the movies' watchlist app:"
 print(welcome_message)
