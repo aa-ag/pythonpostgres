@@ -55,11 +55,12 @@ while (user_input := input(menu)) != "6":
         print_movie_list(movies)
     elif user_input == "3":
         movies = db.get_movie()
-        print_movie_list("All", movies)
+        print_movie_list("Upcoming", movies)
     elif user_input == "4":
-        movies = db.get_watched_movies()
+        movies = db.get_movie()
         print_movie_list("All", movies)
     elif user_input == "5":
-        pass
+        movies = db.get_watched_movies()
+        print_movie_list("Watched", movies)
     else:
         print("Invalid input, please try again.")
