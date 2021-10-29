@@ -77,4 +77,7 @@ if __name__ == "__main__":
             movies = db.get_watched_movies()
             print_movie_list(movies)
         else:
-            print("Invalid input, please try again.")
+            print("************ Invalid input, please try again. ************")
+
+    exit_message = "Thanks for using our app today: see you soon!"
+    print(exit_message)
