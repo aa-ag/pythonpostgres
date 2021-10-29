@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS watched (
 
 # query to insert one movie into `movies` table
 INSERT_MOVIES = """
-INSERT INTO movies (title, release_timestamp, watched) VALUES (?, ?);
+INSERT INTO movies (title, release_timestamp) VALUES (?, ?);
 """
 
 # query to read/display all movies saved into the `movies` table
