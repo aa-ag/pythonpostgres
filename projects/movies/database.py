@@ -47,14 +47,21 @@ def get_watched_movies():
 CREATE_MOVIES_TABLE = """
 CREATE TABLE IF NOT EXISTS movies (
     title TEXT,
-    release_timestamp REAL,
-    watched INTEGER
+    release_timestamp REAL
+);
+"""
+
+# query to create the watchlist table 
+CREATE_WATCHLIST_TABLE = """
+CREATE TABLE IF NOT EXISTS watched (
+    watcher_name TEXT,
+    release_timestamp REAL
 );
 """
 
 # query to insert one movie into `movies` table
 INSERT_MOVIES = """
-INSERT INTO movies (title, release_timestamp, watched) VALUES (?, ?, 0);
+INSERT INTO movies (title, release_timestamp, watched) VALUES (?, ?);
 """
 
 # query to read/display all movies saved into the `movies` table
@@ -69,7 +76,7 @@ SELECT * FROM movies WHERE release_timestamp > ?;
 
 # query to read/display moves that have already been watched
 SELECT_WATCHED_MOVIES = """
-SELECT * FROM movies WHERE watched = 1;
+SELECT * FROM watched WHERE watched_name = ?;
 """
 
 #  query to set watched movie
