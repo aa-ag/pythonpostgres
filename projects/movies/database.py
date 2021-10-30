@@ -82,5 +82,8 @@ SELECT * FROM watched WHERE watched_name = ?;
 #  query to set watched movie
 SET_MOVIE_WATCHED = "UPDATE movies SET watched = 1 WHERE title = ?;"
 
+# query to insert a watched movie
+INSERT_WATCHED_MOVIE = "INSERT INTO watched (watcher_name, title) VALUES (?, ?);"
+
 # query to delete a movie
 DELETE_MOVIE = "DELETE FROM movies WHERE title = ?;"
