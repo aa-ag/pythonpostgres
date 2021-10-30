@@ -50,8 +50,9 @@ def prompt_watch_movie():
     '''
      udpates "watched" flag in db for movies already watched
     '''
+    username = input("Username:  ")
     movie_title = input("Enter a movie title you've already watched: ")
-    db.watch_movie(movie_title)
+    db.watch_movie(username, movie_title)
 
 
 ############------------ DRIVER CODE ------------############
@@ -61,21 +62,28 @@ if __name__ == "__main__":
 
     db.create_tables()
 
+    # until the user enters the number 6, the app
+    # will run and keep expecting inputs 
     while (user_input := input(menu)) != "6":
         if user_input == "1":
             prompt_add_movie()
+
         elif user_input == "2":
             movies = db.get_movies(True)
             print_movie_list(movies)
+
         elif user_input == "3":
             movies = db.get_movies()
             print_movie_list(movies)
+
         elif user_input == "4":
             movies = db.get_movies()
             prompt_watch_movie()
+
         elif user_input == "5":
             movies = db.get_watched_movies()
             print_movie_list(movies)
+            
         else:
             print("************ Invalid input, please try again. ************")
 
