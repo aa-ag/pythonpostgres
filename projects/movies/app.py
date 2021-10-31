@@ -46,7 +46,7 @@ def print_movie_list(movies):
     print("------------\n\n")
 
 
-def print_watched_movie_list(username):
+def print_watched_movie_list(username, movies):
     pass
 
 def prompt_watch_movie():
