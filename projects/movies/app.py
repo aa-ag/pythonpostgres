@@ -46,6 +46,9 @@ def print_movie_list(movies):
     print("------------\n\n")
 
 
+def print_watched_movie_list(username):
+    pass
+
 def prompt_watch_movie():
     '''
      udpates "watched" flag in db for movies already watched
