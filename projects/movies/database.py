@@ -78,7 +78,7 @@ SELECT * FROM movies WHERE release_timestamp > ?;
 
 # query to read/display moves that have already been watched
 SELECT_WATCHED_MOVIES = """
-SELECT * FROM watched WHERE watched_name = ?;
+SELECT * FROM watched WHERE watcher_name = ?;
 """
 
 #  query to set watched movie
