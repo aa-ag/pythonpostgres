@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS movies (
 CREATE_WATCHLIST_TABLE = """
 CREATE TABLE IF NOT EXISTS watched (
     watcher_name TEXT,
+    title TEXT,
     release_timestamp REAL
 );
 """
