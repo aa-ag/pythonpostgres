@@ -90,7 +90,7 @@ if __name__ == "__main__":
         elif user_input == "5":
             username = input("username: ")
             movies = db.get_watched_movies(username)
-            print_movie_list(movies)
+            print_watched_movie_list(username, movies)
             
         else:
             print("************ Invalid input, please try again. ************")
