@@ -88,6 +88,7 @@ if __name__ == "__main__":
             prompt_watch_movie()
 
         elif user_input == "5":
+            username = input("username: ")
             movies = db.get_watched_movies()
             print_movie_list(movies)
             
