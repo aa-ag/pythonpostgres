@@ -2,10 +2,9 @@ class ClassTest:
     def instace_method(self):
         print(f"Called instance_method of {self}")
 
-test = ClassTest()
+    @classmethod
+    def class_method(cls):
+        print(f"Called class_method of {cls}")
 
-# option 1
-test.instace_method()
 
-# option 2 (exactly the same)
-ClassTest.instace_method(test)
+ClassTest.class_method()
