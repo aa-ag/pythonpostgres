@@ -22,4 +22,22 @@ class ClassTest:
         print("Called static_method.")
 
 
-ClassTest.static_method()
+############ factory example
+class Book:
+    TYPES = ("hardcover", "paperback")
+
+    def __init__(self, name, type, weight):
+        self.name = name
+        self.type = type
+        self.weight = weight
+
+    def __repr__(self):
+        return f"<Book {self.name}, {self.type}, wighing {self.weight}g>"
+
+    @classmethod
+    def hardcover(cls, name, weight):
+        return Book(name, Book.TYPES[0], weight + 100)
+
+
+book = Book.hardcover("Harry Potter", 1500)
+print(book)
