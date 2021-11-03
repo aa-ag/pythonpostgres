@@ -21,7 +21,7 @@ class Printer(Device):
     def __str__(self):
         return f"{super().__str__()} ({self.remaining_pages} pages remaining)"
 
-    def printer(self, pages):
+    def printing(self, pages):
         if not self.connected:
             print("Your printer is not connected")
             return 
