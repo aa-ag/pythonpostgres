@@ -38,6 +38,13 @@ class Book:
     def hardcover(cls, name, weight):
         return Book(name, Book.TYPES[0], weight + 100)
 
+    @classmethod
+    def paperback(cls, name, weight):
+        return Book(name, Book.TYPES[1], weight)
 
-book = Book.hardcover("Harry Potter", 1500)
-print(book)
+
+a_book = Book.hardcover("Harry Potter", 1500)
+another_book = Book.paperback("Harry Potter", 200)
+
+print(a_book)
+print(another_book)
