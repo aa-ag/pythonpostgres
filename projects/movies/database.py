@@ -32,10 +32,9 @@ def get_movies(upcoming=False):
         return cursor.fetchall()
 
 
-def watch_movie(username, title):
+def watch_movie(username, movie_id):
     with connection:
-        connection.execute(DELETE_MOVIE, (title,))
-        connection.execute(INSERT_WATCHED_MOVIE, (username, title))
+        connection.execute(INSERT_WATCHED_MOVIE, (username, movie_id))
 
 
 def get_watched_movies(username):
@@ -95,7 +94,7 @@ SELECT * FROM watched WHERE watcher_name = ?;
 SET_MOVIE_WATCHED = "UPDATE movies SET watched = 1 WHERE title = ?;"
 
 # query to insert a watched movie
-INSERT_WATCHED_MOVIE = "INSERT INTO watched (watcher_name, title) VALUES (?, ?);"
+INSERT_WATCHED_MOVIE = "INSERT INTO watched (user_username, movie_id) VALUES (?, ?);"
 
 # query to delete a movie
 DELETE_MOVIE = "DELETE FROM movies WHERE title = ?;"
