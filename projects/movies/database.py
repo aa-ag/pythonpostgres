@@ -54,6 +54,12 @@ CREATE TABLE IF NOT EXISTS movies (
 );
 """
 
+CREATE_USERS_TABLE = """
+CREATE TABLE IF NOT EXISTS users (
+    username TEXT PRIMARY KEY
+);
+"""
+
 # query to create the watchlist table 
 CREATE_WATCHLIST_TABLE = """
 CREATE TABLE IF NOT EXISTS watched (
