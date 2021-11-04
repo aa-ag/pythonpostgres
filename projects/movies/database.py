@@ -12,7 +12,7 @@ connection = sqlite3.connect("data.db")
 def create_tables():
     with connection:
         connection.execute(CREATE_MOVIES_TABLE)
-        connection.execute(CREATE_WATCHLIST_TABLE)
+        connection.execute(CREATE_WATCHED_TABLE)
 
 
 def add_movie(title, release_timestamp):
@@ -61,11 +61,12 @@ CREATE TABLE IF NOT EXISTS users (
 """
 
 # query to create the watchlist table 
-CREATE_WATCHLIST_TABLE = """
+CREATE_WATCHED_TABLE = """
 CREATE TABLE IF NOT EXISTS watched (
-    watcher_name TEXT,
-    title TEXT,
-    release_timestamp REAL
+    user_username TEXT,
+    movie_id INTEGER,
+    FOREIGN KEY(user_username) REFERENCES movies(id)
+    FOREIGN KEY(movie_id) REFERENCES movies(id)
 );
 """
 
