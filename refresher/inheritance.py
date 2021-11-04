@@ -30,6 +30,7 @@ class Printer(Device):
 
 
 printer = Printer("Printer", "USB", 500)
-printer.printing(50)
-print(printer)
+# printer.printing(50)
+# print(printer)
 printer.disconnect()
+printer.printing(450)
