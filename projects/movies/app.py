@@ -39,10 +39,10 @@ def print_movie_list(movies):
      prints out results into the console
     '''
     print("-- upcoming movies --\n")
-    for movie in movies:
-        movie_date = datetime.datetime.fromtimestamp(movie[2])
+    for movie_id, movie_title, movie_releasedate in movies:
+        movie_date = datetime.datetime.fromtimestamp(movie_releasedate)
         human_readable_date = movie_date.strftime("%b %d, %Y")
-        print(f"{movie[0]}: \"{movie[1]}\" (on {human_readable_date})")
+        print(f"{movie_id}: \"{movie_title}\" (on {movie_releasedate})")
     print("------------\n\n")
 
 
