@@ -1,19 +1,23 @@
 class Bookshelf:
-    def __init__(self, quantity):
-        self.quantity = quantity
+    def __init__(self, *books):
+        self.books = books
 
     def __str__(self):
-        return f"Bookshelf with {self.quantity} books."
+        return f"Bookshelf with {len(self.books)} books."
 
 
-class Book(Bookshelf):
-    def __init__(self, name, quantity):
-        super().__init__(quantity)
+class Book:
+    def __init__(self, name):
         self.name = name
+
+    def __str__(self):
+        return f"Book: {self.name}"
 
 
 ###### DRIVER CODE ######
-# shelf = Bookshelf(300)
-# print(shelf)
-book = Book("Harry Potter", 120)
-print(book)
+a_book = ("Intro to Python")
+another_book = ("Intermediate Python")
+yet_another_book = ("Advanced Python")
+
+a_bookself = Bookshelf(a_book, another_book, yet_another_book)
+print(a_bookself)
