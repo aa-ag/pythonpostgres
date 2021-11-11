@@ -1,4 +1,4 @@
-def list_average(l):
+def list_average(l: list) -> float:
     return sum(l) / len(l)
 
 
