@@ -26,7 +26,7 @@ class ClassTest:
 class Book:
     TYPES = ("hardcover", "paperback")
 
-    def __init__(self, name, type, weight):
+    def __init__(self, name: str, type: str, weight: str):
         self.name = name
         self.type = type
         self.weight = weight
