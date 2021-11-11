@@ -26,7 +26,7 @@ class ClassTest:
 class Book:
     TYPES = ("hardcover", "paperback")
 
-    def __init__(self, name: str, type: str, weight: str):
+    def __init__(self, name: str, type: str, weight: int):
         self.name = name
         self.type = type
         self.weight = weight
@@ -45,6 +45,7 @@ class Book:
 
 a_book = Book.hardcover("Harry Potter", 1500)
 another_book = Book.paperback("Harry Potter", 200)
+a_book_with_wrong_inputs = Book.hardcover(1, 2, '3')
 
 print(a_book)
 print(another_book)
