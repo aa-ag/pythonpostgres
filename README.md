@@ -2,3 +2,6 @@
 
 Taking [The Complete Python/PostgreSQL Course](https://pysql.tecladocode.com/).
 
+### dependencies
+
+- `pip install mypy`

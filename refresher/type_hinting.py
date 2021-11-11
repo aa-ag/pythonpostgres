@@ -1,4 +1,6 @@
-def list_average(l: list) -> float:
+from typing import List
+
+def list_average(l: List) -> float:
     return sum(l) / len(l)
 
 
