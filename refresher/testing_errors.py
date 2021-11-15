@@ -7,7 +7,10 @@ def divide(dividend, divisor):
 divide(10, 0)
 
 
-# grades = list()
+grades = list()
 
-# average = divide(sum(grades), len(grades))
-# print(average)
+try:
+    average = divide(sum(grades), len(grades))
+    print(average)
+except ZeroDivisionError as e:
+    print("there are no grades in your list")
