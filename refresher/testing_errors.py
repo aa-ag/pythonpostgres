@@ -5,3 +5,9 @@ def divide(dividend, divisor):
     return dividend / divisor
 
 divide(10, 0)
+
+
+grades = list()
+
+average = divide(sum(grades), len(grades))
+print(average)
