@@ -11,6 +11,7 @@ grades = list()
 
 try:
     average = divide(sum(grades), len(grades))
-    print(average)
 except ZeroDivisionError as e:
     print("there are no grades in your list")
+else:
+    print(average)
