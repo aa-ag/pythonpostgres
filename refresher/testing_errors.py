@@ -1,3 +1,6 @@
+from typing import final
+
+
 def divide(dividend, divisor):
     if divisor == 0:
         raise ZeroDivisionError("divisor cannot be 0")
@@ -15,3 +18,5 @@ except ZeroDivisionError as e:
     print("there are no grades in your list")
 else:
     print(average)
+finally:
+    print("thank you")
