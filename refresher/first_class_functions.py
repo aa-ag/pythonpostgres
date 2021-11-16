@@ -1,3 +1,5 @@
+from operator import itemgetter
+
 def search(sequence, target, search_method):
     for i in sequence:
         if search_method(i) == target:
@@ -14,4 +16,4 @@ friends = [
     {"name": "c", "age": 3},
 ]
 
-print(search(friends, "c", lambda friend: friend["name"]))
+print(search(friends, "c", itemgetter("name")))
