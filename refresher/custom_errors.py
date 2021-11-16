@@ -1,3 +1,8 @@
+### custom errors
+class CantReadMorePagesThanBookLength(ValueError):
+    pass
+
+### class
 class Book:
     def __init__(self, name: str, page_count: int):
         self.name = name
@@ -10,5 +15,9 @@ class Book:
         )
 
     def read(self, pages: int):
+        if self.pages_read + pages > self.page_count:
+            raise CantReadMorePagesThanBookLength(
+                f"You tried reading more pages than the book has"
+            )
         self.pages_read += pages
         print(f"Pages read: {self.pages_read}")
