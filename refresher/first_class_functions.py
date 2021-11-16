@@ -5,8 +5,8 @@ def search(sequence, target, search_method):
     raise RuntimeError(f"Unable to find {target}")
 
 
-def iterate_over_friends_object(friend):
-    return friend["name"]
+# def iterate_over_friends_object(friend):
+#     return friend["name"]
 
 friends = [
     {"name": "a", "age": 1},
@@ -14,4 +14,4 @@ friends = [
     {"name": "c", "age": 3},
 ]
 
-print(search(friends, "c", iterate_over_friends_object))
+print(search(friends, "c", lambda friend: friend["name"]))
