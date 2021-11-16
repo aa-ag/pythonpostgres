@@ -21,3 +21,8 @@ class Book:
             )
         self.pages_read += pages
         print(f"Pages read: {self.pages_read}")
+
+### driver code
+a_book = Book("This is a title", 50)
+a_book.read(49)
+a_book.read(51)
