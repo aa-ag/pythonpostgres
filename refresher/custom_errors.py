@@ -8,3 +8,7 @@ class Book:
         return (
             f"<Book {self.name}, read {self.pages_read} of {self.page_count} pages."
         )
+
+    def read(self, pages: int):
+        self.pages_read += pages
+        print(f"Pages read: {self.pages_read}")
