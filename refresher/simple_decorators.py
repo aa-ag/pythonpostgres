@@ -1,12 +1,15 @@
-user = {"user": "a","access_level": "admin"}
+user = {"user": "a","access_level": "guest"}
 
 def get_admin_password():
     return "1234"
 
-def check_access_level(function):
-    if user["access_level"] == "admin":
-        return function
+def make_function_secure(function):
+    def secure_function():
+        if user["access_level"] == "admin":
+            return function()
+    
+    return secure_function
 
 
-get_admin_password = check_access_level(get_admin_password)
+get_admin_password = make_function_secure(get_admin_password)
 print(get_admin_password())
