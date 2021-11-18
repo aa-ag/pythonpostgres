@@ -5,6 +5,8 @@ def make_function_secure(function):
     def secure_function():
         if user["access_level"] == "admin":
             return function()
+        else:
+            return "user has insufficient access level"
     
     return secure_function
 
