@@ -1,5 +1,3 @@
-user = {"user": "a","access_level": "guest"}
-
 def get_admin_password():
     return "1234"
 
@@ -12,4 +10,5 @@ def make_function_secure(function):
 
 
 get_admin_password = make_function_secure(get_admin_password)
+user = {"user": "a","access_level": "admin"}
 print(get_admin_password())
