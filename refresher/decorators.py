@@ -1,6 +1,9 @@
+import functools as ft
+
 user = {"user": "a","access_level": "guest"}
 
 def make_function_secure(function):
+    @ft.wraps(function)
     def secure_function():
         if user["access_level"] == "admin":
             return function()
