@@ -16,15 +16,14 @@ def make_function_secure_factory(access_level):
 
 
 @make_function_secure_factory("admin")
-def get_admin_password(panel):
-    if panel == "admin":
+def get_admin_password():
         return "1234"
-    return "nope"
 
 
 @make_function_secure_factory("guest")
-def get_dashboard_password(panel):
+def get_dashboard_password():
     return "user: userpassword"
 
 
-print(get_admin_password)
+print(get_admin_password())
+print(get_dashboard_password())
