@@ -20,4 +20,9 @@ def get_admin_password(panel):
     return "nope"
 
 
+@make_function_secure
+def get_dashboard_password(panel):
+    return "user: userpassword"
+
+
 print(get_admin_password.__name__)
