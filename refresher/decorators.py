@@ -27,3 +27,8 @@ def get_dashboard_password():
 
 print(get_admin_password())
 print(get_dashboard_password())
+
+user = {"username": "b","access_level": "admin"}
+
+print(get_admin_password())
+print(get_dashboard_password())
