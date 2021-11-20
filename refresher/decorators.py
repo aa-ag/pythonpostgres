@@ -2,15 +2,17 @@ import functools as ft
 
 user = {"user": "a","access_level": "guest"}
 
-def make_function_secure(function):
-    @ft.wraps(function)
-    def secure_function(*args, **kwargs):
-        if user["access_level"] == "admin":
-            return function(*args, **kwargs)
-        else:
-            return "user has insufficient access level"
-    
-    return secure_function
+def decorator(access_level):
+    def make_function_secure(function):
+        @ft.wraps(function)
+        def secure_function(*args, **kwargs):
+            if user["access_level"] == "admin":
+                return function(*args, **kwargs)
+            else:
+                return "user has insufficient access level"
+        
+        return secure_function
+    return make_function_secure
 
 
 @make_function_secure
