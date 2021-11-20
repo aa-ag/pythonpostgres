@@ -15,16 +15,16 @@ def make_function_secure_factory(access_level):
     return make_function_secure_decorator
 
 
-@make_function_secure_factory
+@make_function_secure_factory("admin")
 def get_admin_password(panel):
     if panel == "admin":
         return "1234"
     return "nope"
 
 
-@make_function_secure_factory
+@make_function_secure_factory("guest")
 def get_dashboard_password(panel):
     return "user: userpassword"
 
 
-print(get_admin_password.__name__)
+print(get_admin_password)
