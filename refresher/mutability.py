@@ -1,8 +1,5 @@
 a = ()
-b = ()
-
-a.append(100)
-# print(a)
-# print(b)
 print(id(a))
-print(id(b))
+
+a = a + (1,)
+print(id(a))
