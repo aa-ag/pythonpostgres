@@ -58,8 +58,8 @@ def prompt_watch_movie():
      udpates "watched" flag in db for movies already watched
     '''
     username = input("Username:  ")
-    movie_title = input("Enter a movie title you've already watched: ")
-    db.watch_movie(username, movie_title)
+    movie_id = input("Movie ID: ")
+    db.watch_movie(username, movie_id)
 
 
 ############------------ DRIVER CODE ------------############
