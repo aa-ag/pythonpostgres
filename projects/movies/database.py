@@ -16,6 +16,11 @@ def create_tables():
         connection.execute(CREATE_WATCHED_TABLE)
 
 
+def add_user(useraname):
+    with connection:
+        connection.execute(INSERT_USER, (useraname,))
+
+
 def add_movie(title, release_timestamp):
     with connection:
         connection.execute(INSERT_MOVIES, (title, release_timestamp))
