@@ -11,7 +11,8 @@ Please select one of the following options:
 (3) View all movies.
 (4) Watch a movie.
 (5) View watched movies.
-(6) Exit.\n\n
+(6) Add new user.
+(7) Exit.\n\n
 """
 
 
@@ -62,6 +63,11 @@ def prompt_watch_movie():
     db.watch_movie(username, movie_id)
 
 
+def prompt_add_user():
+    username = input("Username: ")
+    db.add_user(username)
+
+
 ############------------ DRIVER CODE ------------############
 if __name__ == "__main__":    
     welcome_message = "Welcome to the movies' watchlist app:"
@@ -69,9 +75,9 @@ if __name__ == "__main__":
 
     db.create_tables()
 
-    # until the user enters the number 6, the app
+    # until the user enters the number 7, the app
     # will run and keep expecting inputs 
-    while (user_input := input(menu)) != "6":
+    while (user_input := input(menu)) != "7":
         if user_input == "1":
             prompt_add_movie()
 
@@ -91,6 +97,9 @@ if __name__ == "__main__":
             username = input("username: ")
             movies = db.get_watched_movies(username)
             print_watched_movie_list(username, movies)
+
+        elif user_input == "6":
+            prompt_add_user()
             
         else:
             print("************ Invalid input, please try again. ************")
