@@ -75,6 +75,11 @@ INSERT_MOVIES = """
 INSERT INTO movies (title, release_timestamp) VALUES (?, ?);
 """
 
+# query to insert a new user
+INSERT_USER = """
+INSERT INTO users (username) VALUES (?)
+"""
+
 # query to read/display all movies saved into the `movies` table
 SELECT_ALL_MOVIES = """
 SELECT * FROM movies;
