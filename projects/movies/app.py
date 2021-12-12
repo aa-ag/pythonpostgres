@@ -96,7 +96,7 @@ if __name__ == "__main__":
         elif user_input == "5":
             username = input("username: ")
             movies = db.get_watched_movies(username)
-            print_watched_movie_list(username, movies)
+            print_movie_list(username, movies)
 
         elif user_input == "6":
             prompt_add_user()
