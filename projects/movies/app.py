@@ -68,6 +68,15 @@ def prompt_add_user():
     db.add_user(username)
 
 
+def prompt_show_watched_movies():
+    username = input("username: ")
+    movies = db.get_watched_movies(username)
+    if movies:
+        print_movie_list("Watched", movies)
+    else:
+        print(f"User \"{username}\" hasn't watched any movies.")
+
+
 ############------------ DRIVER CODE ------------############
 if __name__ == "__main__":    
     welcome_message = "Welcome to the movies' watchlist app:"
@@ -94,12 +103,7 @@ if __name__ == "__main__":
             prompt_watch_movie()
 
         elif user_input == "5":
-            username = input("username: ")
-            movies = db.get_watched_movies(username)
-            if movies:
-                print_movie_list("Watched", movies)
-            else:
-                print(f"User \"{username}\" hasn't watched any movies.")
+            prompt_show_watched_movies()
 
         elif user_input == "6":
             prompt_add_user()
