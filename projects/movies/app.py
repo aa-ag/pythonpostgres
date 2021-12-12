@@ -47,11 +47,11 @@ def print_movie_list(movies):
     print("------------\n\n")
 
 
-def print_watched_movie_list(username, movies):
-    print(f"-- {username}'s watched the following movies: ")
-    for movie in movies:
-        print(f"{movie[1]}")
-    print("--- \n")
+# def print_watched_movie_list(username, movies):
+#     print(f"-- {username}'s watched the following movies: ")
+#     for movie in movies:
+#         print(f"{movie[1]}")
+#     print("--- \n")
 
 
 def prompt_watch_movie():
