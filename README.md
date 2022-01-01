@@ -7,3 +7,4 @@ Next to check out polling app tutorial [here](https://www.youtube.com/watch?v=xG
 ### dependencies
 
 - `pip install mypy`
+- `conda install -c anaconda psycopg2`
