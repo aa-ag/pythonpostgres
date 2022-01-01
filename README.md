@@ -6,5 +6,6 @@ Next to check out polling app tutorial [here](https://www.youtube.com/watch?v=xG
 
 ### env
 
+- `conda activate pythonpostgres`
 - `conda install -c conda-forge mypy`
 - `conda install -c conda-forge psycopg2-binary`
