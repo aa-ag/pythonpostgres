@@ -19,3 +19,4 @@ def get_all_users():
 ############------------ DRIVER CODE ------------############
 if __name__ == "__main__":
     get_all_users()
+    # (1, 'Taylor Madlener')
