@@ -13,7 +13,7 @@ def get_all_users():
     cursor.execute("SELECT * FROM users;")
     first_user = cursor.fetchone()
     print(first_user)
-    
+    connection.close()
 
 
 ############------------ DRIVER CODE ------------############
