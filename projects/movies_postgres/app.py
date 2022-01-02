@@ -1,9 +1,10 @@
 ############------------ IMPORTS ------------############
 import psycopg2
+import settings
 
 ############------------ GLOBAL VARIABLE(S) ------------############
-url = 'postgres://qfdrqgjd:IdD-59wdGyZkCM6l8FRAZTCbs646JQK6@hansken.db.elephantsql.com/qfdrqgjd'
-
+url = settings.postgres_url
+connection = psycopg2
 
 ############------------ FUNCTION(S) ------------############
 
