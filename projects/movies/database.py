@@ -58,10 +58,9 @@ def get_watched_movies(username):
 CREATE_MOVIES_TABLE = """
 CREATE TABLE IF NOT EXISTS movies (
     id SERIAL PRIMARY KEY,
-    title TEXT,
+    name TEXT,
     release_timestamp REAL
-);
-"""
+);"""
 
 CREATE_USERS_TABLE = """
 CREATE TABLE IF NOT EXISTS users (
@@ -74,7 +73,7 @@ CREATE_WATCHED_TABLE = """
 CREATE TABLE IF NOT EXISTS watched (
     user_username TEXT,
     movie_id INTEGER,
-    FOREIGN KEY(user_username) REFERENCES movies(id),
+    FOREIGN KEY(user_username) REFERENCES users(username),
     FOREIGN KEY(movie_id) REFERENCES movies(id)
 );
 """
