@@ -53,7 +53,7 @@ def get_watched_movies(username):
 # query to create `movies` table
 CREATE_MOVIES_TABLE = """
 CREATE TABLE IF NOT EXISTS movies (
-    id INTEGER PRIMARY KEY
+    id SERIAL PRIMARY KEY
     title TEXT,
     release_timestamp REAL
 );
