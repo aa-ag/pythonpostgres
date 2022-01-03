@@ -11,19 +11,22 @@ connection = psycopg2.connect(pu)
 ############------------ FUNCTIONS ------------############
 def create_tables():
     with connection:
-        connection.execute(CREATE_MOVIES_TABLE)
-        connection.execute(CREATE_USERS_TABLE)
-        connection.execute(CREATE_WATCHED_TABLE)
+        with connection.cursor() as cursor:
+            cursor.execute(CREATE_MOVIES_TABLE)
+            cursor.execute(CREATE_USERS_TABLE)
+            cursor.execute(CREATE_WATCHED_TABLE)
 
 
 def add_user(useraname):
     with connection:
-        connection.execute(INSERT_USER, (useraname,))
+        with connection.cursor() as cursor:
+            cursor.execute(INSERT_USER, (useraname,))
 
 
 def add_movie(title, release_timestamp):
     with connection:
-        connection.execute(INSERT_MOVIES, (title, release_timestamp))
+        with connection.cursor() as cursor:
+            cursor.execute(INSERT_MOVIES, (title, release_timestamp))
 
 
 def get_movies(upcoming=False):
@@ -39,7 +42,8 @@ def get_movies(upcoming=False):
 
 def watch_movie(username, movie_id):
     with connection:
-        connection.execute(INSERT_WATCHED_MOVIE, (username, movie_id))
+        with connection.cursor() as cursor:
+            cursor.execute(INSERT_WATCHED_MOVIE, (username, movie_id))
 
 
 def get_watched_movies(username):
