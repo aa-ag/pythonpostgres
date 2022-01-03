@@ -77,12 +77,12 @@ CREATE TABLE IF NOT EXISTS watched (
 
 # query to insert one movie into `movies` table
 INSERT_MOVIES = """
-INSERT INTO movies (title, release_timestamp) VALUES (?, ?);
+INSERT INTO movies (title, release_timestamp) VALUES (%s, %s);
 """
 
 # query to insert a new user
 INSERT_USER = """
-INSERT INTO users (username) VALUES (?)
+INSERT INTO users (username) VALUES (%s)
 """
 
 # query to read/display all movies saved into the `movies` table
@@ -92,7 +92,7 @@ SELECT * FROM movies;
 
 # query to read/display movies that meet a timestamp condition
 SELECT_UPCOMING_MOVIES = """
-SELECT * FROM movies WHERE release_timestamp > ?;
+SELECT * FROM movies WHERE release_timestamp > %s;
 """
 
 # query to read/display moves that have already been watched
@@ -101,14 +101,14 @@ SELECT movies.*
 FROM movies
 JOIN watched ON movies.id = watched.movie_id
 JOIN users ON users.username = watched.user_username
-WHERE users.username = ?;
+WHERE users.username = %s;
 """
 
 #  query to set watched movie
-SET_MOVIE_WATCHED = "UPDATE movies SET watched = 1 WHERE title = ?;"
+SET_MOVIE_WATCHED = "UPDATE movies SET watched = 1 WHERE title = %s;"
 
 # query to insert a watched movie
-INSERT_WATCHED_MOVIE = "INSERT INTO watched (user_username, movie_id) VALUES (?, ?);"
+INSERT_WATCHED_MOVIE = "INSERT INTO watched (user_username, movie_id) VALUES (%s, %s);"
 
 # query to delete a movie
-DELETE_MOVIE = "DELETE FROM movies WHERE title = ?;"
+DELETE_MOVIE = "DELETE FROM movies WHERE title = %s;"
