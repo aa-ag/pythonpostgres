@@ -1,7 +1,13 @@
-############------------ IMPORTS ------------############
-
-
 ############------------ GLOBAL VARIABLE(S) ------------############
+
+
+############------------ FUNCTION(S) ------------############
+def create_tables(connection):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(CREATE_POLLS)
+        cursor.execute(CREATE_OPTIONS)
+        cursor.execute(CREATE_VOTES)
 
 
 ############------------ QUERIES(S) ------------############
