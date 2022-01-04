@@ -20,3 +20,7 @@ CREATE_VOTES = """
 CREATE TABLE IF NOT EXISTS votes
 (username TEXT, option_id INTEGER, FOREIGN KEY(option_id) REFERENCES options (id));
 """
+
+SELECT_ALL_POLLS = """
+SELECT * FROM polls;
+"""
