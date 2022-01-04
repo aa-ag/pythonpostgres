@@ -15,3 +15,8 @@ CREATE TABLE IF NOT EXISTS options
 (id SERIAL PRIMARY_KEY, option_text TEXT, poll_id INTEGER, 
 FOREIGN_KEY(poll_id) REFERENCES polls (id));
 """
+
+CREATE_VOTES = """
+CREATE TABLE IF NOT EXISTS votes
+(username TEXT, option_id INTEGER, FOREIGN KEY(option_id) REFERENCES options (id));
+"""
