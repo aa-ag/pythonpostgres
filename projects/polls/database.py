@@ -10,6 +10,13 @@ def create_tables(connection):
         cursor.execute(CREATE_VOTES)
 
 
+def get_polls(connection):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(SELECT_ALL_POLLS)
+        return cursor.fetchall()
+
+
 ############------------ QUERIES(S) ------------############
 CREATE_POLLS = """
 CREATE TABLE IF NOT EXISTS polls 
