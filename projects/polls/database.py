@@ -30,3 +30,7 @@ SELECT * FROM polls
 JOIN options ON polls.id = options.poll_id
 WHERE polls.id = %s;
 """
+
+INSERT_OPTION = """
+INSERT into options (option_text, poll_id) VALUES %s;
+"""
