@@ -17,6 +17,13 @@ def get_polls(connection):
         return cursor.fetchall()
 
 
+def get_poll_details(connection, poll_id):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(SELECT_POLLS_WITH_OPTIONS, (poll_id,))
+        return cursor.fetchall()
+
+
 ############------------ QUERIES(S) ------------############
 CREATE_POLLS = """
 CREATE TABLE IF NOT EXISTS polls 
