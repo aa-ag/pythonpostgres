@@ -24,3 +24,9 @@ CREATE TABLE IF NOT EXISTS votes
 SELECT_ALL_POLLS = """
 SELECT * FROM polls;
 """
+
+SELECT_POLLS_WITH_OPTIONS = """
+SELECT * FROM polls
+JOIN options ON polls.id = options.poll_id
+WHERE polls.id = %s;
+"""
