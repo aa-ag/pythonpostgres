@@ -24,6 +24,12 @@ def get_poll_details(connection, poll_id):
         return cursor.fetchall()
 
 
+def add_poll_vote(connection, username, option_id):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(INSERT_VOTE, (username, option_id))
+
+
 ############------------ QUERIES(S) ------------############
 CREATE_POLLS = """
 CREATE TABLE IF NOT EXISTS polls 
