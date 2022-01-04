@@ -32,5 +32,9 @@ WHERE polls.id = %s;
 """
 
 INSERT_OPTION = """
-INSERT into options (option_text, poll_id) VALUES %s;
+INSERT INTO options (option_text, poll_id) VALUES %s;
+"""
+
+INSERT_VOTE = """
+INSERT INTO votes (username, option_id) VALUES (%s, %s);
 """
