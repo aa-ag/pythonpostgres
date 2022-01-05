@@ -20,7 +20,16 @@ Enter your choice:
 
 NEW_OPTION_PROMPT = "Enter new option text (or leave empty to stop adding options):"
 
-############------------ FUNCTION(S) ------------############
 
+############------------ FUNCTION(S) ------------############
+def prompt_create_poll(connection):
+    poll_title = input("Enter poll title: ")
+    poll_owner = input("Enter poll owner: ")
+    options = list()
+
+    while new_option := input(NEW_OPTION_PROMPT):
+        options.append(new_option)
+
+    database.create_poll(connection, poll_title, poll_owner, options)
 
 ############------------ DRIVER CODE ------------############
