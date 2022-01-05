@@ -32,4 +32,11 @@ def prompt_create_poll(connection):
 
     database.create_poll(connection, poll_title, poll_owner, options)
 
+
+def list_open_polls(connection):
+    polls = database.get_polls(connection)
+
+    for id_, title, owner in polls:
+        print(f"{id_}: {title}, created by {owner}")
+
 ############------------ DRIVER CODE ------------############
