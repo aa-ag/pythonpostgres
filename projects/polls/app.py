@@ -18,6 +18,8 @@ MENU_PROMPT = """
 Enter your choice:
 """
 
+NEW_OPTION_PROMPT = "Enter new option text (or leave empty to stop adding options):"
+
 ############------------ FUNCTION(S) ------------############
 
 
