@@ -39,4 +39,11 @@ def list_open_polls(connection):
     for id_, title, owner in polls:
         print(f"{id_}: {title}, created by {owner}")
 
+
+def prompt_vote_poll(connection):
+    poll_id = int(input("Enter poll would you like to vote on: "))
+    poll_options = database.get_poll_details(connection, poll_id)
+    print_poll_options(poll_options)
+
+
 ############------------ DRIVER CODE ------------############
