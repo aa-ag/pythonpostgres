@@ -45,6 +45,10 @@ def prompt_vote_poll(connection):
     poll_options = database.get_poll_details(connection, poll_id)
     print_poll_options(poll_options)
 
+    option_id = int(input("Enter the option you'd like to vote for: "))
+    username = input("Enter voter's username: ")
+    database.add_poll_vote(connection, username, option_id)
+
 
 def print_poll_options(poll_options):
     for option in poll_options:
