@@ -46,4 +46,8 @@ def prompt_vote_poll(connection):
     print_poll_options(poll_options)
 
 
+def print_poll_options(poll_options):
+    for option in poll_options:
+        print(f"{option[3]}: {option[4]}")
+
 ############------------ DRIVER CODE ------------############
