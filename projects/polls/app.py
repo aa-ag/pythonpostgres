@@ -84,4 +84,15 @@ def randomize_poll_winner(connection):
     print(f"The randomly selected winner is {winner[0]}.")
 
 
+def app_run():
+    database_uri = settings.postgres_url
+    connection = psycopg2.connect(database_uri)
+
+    while (selection := input(MENU_PROMPT)) != "6":
+        try:
+            MENU_OPTIONS[selection](connection)
+        except KeyError:
+            print("Invalid input selected. Try again.")
+
+    
 ############------------ DRIVER CODE ------------############
