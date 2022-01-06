@@ -54,4 +54,16 @@ def print_poll_options(poll_options):
     for option in poll_options:
         print(f"{option[3]}: {option[4]}")
 
+
+def show_poll_votes(connection):
+    poll_id = int(input("Enter poll you'd like to see votes for."))
+    try:
+        poll_and_votes = database.get_poll_and_results(connection, poll_id)
+    except:
+        print("Poll has received no votes yet")
+    else:
+        for _id, option_text, count, percentage in poll_and_votes:
+            print(f"{option_text} got {count} votes ({percentage:.2f}% of total)")
+
+
 ############------------ DRIVER CODE ------------############
