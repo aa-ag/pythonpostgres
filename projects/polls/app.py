@@ -59,7 +59,7 @@ def show_poll_votes(connection):
     poll_id = int(input("Enter poll you'd like to see votes for."))
     try:
         poll_and_votes = database.get_poll_and_results(connection, poll_id)
-    except:
+    except DivisionByZero:
         print("Poll has received no votes yet")
     else:
         for _id, option_text, count, percentage in poll_and_votes:
