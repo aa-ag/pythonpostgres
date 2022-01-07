@@ -17,6 +17,13 @@ def get_polls(connection):
         return cursor.fetchall()
 
 
+def get_latest_poll(connection):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(SELECT_LATEST_POLL)
+        return cursor.fetchall()
+
+
 def get_poll_details(connection, poll_id):
     with connection:
         cursor = connection.cursor()
