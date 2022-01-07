@@ -1,5 +1,5 @@
-############------------ GLOBAL VARIABLE(S) ------------############
-
+############------------ IMPORT(S) ------------############
+from psycopg2 import execute_values
 
 ############------------ FUNCTION(S) ------------############
 def create_tables(connection):
@@ -31,9 +31,8 @@ def create_poll(connection, title, owner, options):
 
         poll_id = cursor.fetchone()[0]
         option_values = [(option_text, poll_id) for option_text in options]
-
-        for option_value in option_values:
-            cursor.execute(INSERT_OPTION, option_value)
+        
+        execute_values(cursor, INSERT_OPTION, option_values)
 
 
 def add_poll_vote(connection, username, option_id):
