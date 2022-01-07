@@ -92,3 +92,15 @@ INSERT INTO votes (username, option_id) VALUES (%s, %s);
 """
 
 INSERT_POLL_RETURN_ID = "INSERT INTO polls (title, owner_username) VALUES (%s, %s) RETURNING id;"
+
+SELECT_POLL_VOTE_DETAILS = """
+SELECT 
+    options.id,
+    options.option_text,
+    COUNT(votes.option_id) AS vote_count,
+    COUNT(votes.option_id) / SUM(COUNT(votes.option_id)) OVER() * 100.0 AS vote_percentage
+FROM options
+LEFT JOIN votes ON options_id = votes.option_id
+WHERE options.poll_id = 1
+GROUP BY options.id;
+"""
