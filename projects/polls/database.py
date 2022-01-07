@@ -24,6 +24,18 @@ def get_poll_details(connection, poll_id):
         return cursor.fetchall()
 
 
+def create_poll(connection, title, owner, options):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO polls VALUES (%s, %s) RETURNING id;", (title, owner))
+
+        poll_id = cursor.fetchone()[0]
+        option_values = [(option_text, poll_id) for option_text in options]
+
+        for option_value in option_values:
+            cursor.execute(INSERT_OPTION, option_value)
+
+
 def add_poll_vote(connection, username, option_id):
     with connection:
         cursor = connection.cursor()
