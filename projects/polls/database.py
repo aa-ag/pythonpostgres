@@ -31,6 +31,12 @@ def get_poll_details(connection, poll_id):
         return cursor.fetchall()
 
 
+def get_poll_and_vote_results(connection, poll_id):
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(SELECT_POLL_VOTE_DETAILS, (poll_id,))
+
+
 def create_poll(connection, title, owner, options):
     with connection:
         cursor = connection.cursor()
@@ -101,6 +107,6 @@ SELECT
     COUNT(votes.option_id) / SUM(COUNT(votes.option_id)) OVER() * 100.0 AS vote_percentage
 FROM options
 LEFT JOIN votes ON options_id = votes.option_id
-WHERE options.poll_id = 1
+WHERE options.poll_id = %s
 GROUP BY options.id;
 """
