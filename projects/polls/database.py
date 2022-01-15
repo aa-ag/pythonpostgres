@@ -26,7 +26,7 @@ def get_polls(connection) -> List[Poll]:
         return cursor.fetchall()
 
 
-def get_latest_poll(connection):
+def get_latest_poll(connection) -> List[PollWithOption]:
     with connection:
         cursor = connection.cursor()
         cursor.execute(SELECT_LATEST_POLL)
