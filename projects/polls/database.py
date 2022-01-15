@@ -1,4 +1,5 @@
 ############------------ IMPORT(S) ------------############
+from typing import List, Tuple
 from psycopg2 import execute_values
 
 ############------------ FUNCTION(S) ------------############
