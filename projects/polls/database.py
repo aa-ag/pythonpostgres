@@ -19,7 +19,7 @@ def create_tables(connection):
         cursor.execute(CREATE_VOTES)
 
 
-def get_polls(connection):
+def get_polls(connection) -> List[Poll]:
     with connection:
         cursor = connection.cursor()
         cursor.execute(SELECT_ALL_POLLS)
