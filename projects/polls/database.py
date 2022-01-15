@@ -40,7 +40,7 @@ def get_poll_details(connection, poll_id: int) -> List[PollWithOption]:
         return cursor.fetchall()
 
 
-def get_poll_and_vote_results(connection, poll_id: int):
+def get_poll_and_vote_results(connection, poll_id: int) -> List[PollResults]:
     with connection:
         cursor = connection.cursor()
         cursor.execute(SELECT_POLL_VOTE_DETAILS, (poll_id,))
