@@ -25,20 +25,20 @@ def get_latest_poll(connection):
         return cursor.fetchall()
 
 
-def get_poll_details(connection, poll_id):
+def get_poll_details(connection, poll_id: int):
     with connection:
         cursor = connection.cursor()
         cursor.execute(SELECT_POLLS_WITH_OPTIONS, (poll_id,))
         return cursor.fetchall()
 
 
-def get_poll_and_vote_results(connection, poll_id):
+def get_poll_and_vote_results(connection, poll_id: int):
     with connection:
         cursor = connection.cursor()
         cursor.execute(SELECT_POLL_VOTE_DETAILS, (poll_id,))
 
 
-def create_poll(connection, title, owner, options):
+def create_poll(connection, title: str, owner: str, options: List[str]):
     with connection:
         cursor = connection.cursor()
         cursor.execute(INSERT_POLL_RETURN_ID, (title, owner))
@@ -49,7 +49,7 @@ def create_poll(connection, title, owner, options):
         execute_values(cursor, INSERT_OPTION, option_values)
 
 
-def add_poll_vote(connection, username, option_id):
+def add_poll_vote(connection, username: str, option_id: int):
     with connection:
         cursor = connection.cursor()
         cursor.execute(INSERT_VOTE, (username, option_id))
