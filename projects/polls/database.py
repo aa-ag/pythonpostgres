@@ -2,6 +2,14 @@
 from typing import List, Tuple
 from psycopg2 import execute_values
 
+
+############------------ GLOBAL ------------############
+Poll = Tuple[int, str, str]
+Vote = Tuple[str, int]
+PollWithOption = Tuple[int, str, str, int, str, int]
+PollResults = Tuple[int, str, int, float]
+
+
 ############------------ FUNCTION(S) ------------############
 def create_tables(connection):
     with connection:
