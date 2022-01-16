@@ -5,4 +5,4 @@ class Poll:
         self._id = _id
 
     def __repr__(self) -> str:
-        return f"Poll: {self.name}!r"
+        return f"Poll {self.title!r}, {self.owner!r}, {self._id!r}"
