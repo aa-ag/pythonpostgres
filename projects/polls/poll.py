@@ -1,3 +1,8 @@
 class Poll:
     def __init__(self, title: str, owner: str, _id: int = None):
-        pass
+        self.title = title
+        self.owner = owner
+        self._id = _id
+
+    def __repr__(self) -> str:
+        return f"Poll: {self.name}!r"
