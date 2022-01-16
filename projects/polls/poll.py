@@ -1,3 +1,4 @@
+from socket import create_connection
 from sqlite3 import connect
 from typing import List
 from models import Option
@@ -27,3 +28,24 @@ class Poll:
         options = database.get_poll_opions(connection, self.id)
         connection.close()
         return [Option(option[1], option[2], option[0]) for option in options]
+
+    @classmethod
+    def get(cls, poll_id) -> "Poll":
+        connection = create_connection()
+        poll = database.get_poll(connection, poll_id)
+        connection.close()
+        return cls(poll[1], poll[2], poll[0])
+
+    @classmethod
+    def all(cls) -> List["Poll"]:
+        connection = create_connection()
+        polls = database.get_polls(connection)
+        connection.close()
+        return [cls(poll[1], poll[2], poll[0]) for poll in polls]
+
+    @classmethod
+    def latest(cls) -> "Poll":
+        connection = create_connection()
+        poll = database.get_latest_poll()
+        connection.close()
+        return cls(poll[1], poll[2], poll[0])
