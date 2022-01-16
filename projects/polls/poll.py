@@ -1,5 +1,4 @@
-from socket import create_connection
-from sqlite3 import connect
+from typing import List
 import database
 
 
@@ -17,3 +16,6 @@ class Poll:
         new_poll_id = database.create_poll(connection, self.title, self.owner)
         connection.close()
         self.id = new_poll_id
+
+    def add_option(self, option_text: str):
+        Option(option_text, self.id).save()
