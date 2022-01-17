@@ -1,3 +1,4 @@
+from multiprocessing import connection
 from sqlite3 import connect
 from typing import List
 from venv import create
@@ -26,3 +27,15 @@ class Option:
         option = database.get_option(connection, option_id)
         connection.close()
         return cls(option[1], option[2], option[0])
+
+    def vote(self, username: str):
+        connection = create_connection()
+        database.add_poll_vote(connection, self.id)
+        connection.close()
+
+    @property
+    def votes(self) -> List[database.Vote]:
+        connection = create_connection()
+        votes = database.get_votes_for_options(connection, self.id)
+        connection.close()
+        return votes
