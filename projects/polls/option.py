@@ -20,4 +20,9 @@ class Option:
         connection.close()
         self.id = new_option_id
 
-    
+    @classmethod
+    def get(cls, option_id: int) -> "Option":
+        connection = create_connection()
+        option = database.get_option(connection, option_id)
+        connection.close()
+        return cls(option[1], option[2], option[0])
