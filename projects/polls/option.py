@@ -1,7 +1,4 @@
-from multiprocessing import connection
-from sqlite3 import connect
 from typing import List
-from venv import create
 from connection import create_connection
 import database
 
