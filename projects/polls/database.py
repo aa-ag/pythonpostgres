@@ -40,10 +40,10 @@ def get_latest_poll(connection) -> List[PollWithOption]:
         return cursor.fetchall()
 
 
-def get_poll_details(connection, poll_id: int) -> List[PollWithOption]:
+def get_poll_options(connection, poll_id: int) -> List[Option]:
     with connection:
         cursor = connection.cursor()
-        cursor.execute(SELECT_POLLS_WITH_OPTIONS, (poll_id,))
+        cursor.execute(SELECT_POLLS_OPTIONS, (poll_id,))
         return cursor.fetchall()
 
 
