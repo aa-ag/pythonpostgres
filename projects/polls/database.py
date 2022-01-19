@@ -7,6 +7,7 @@ from psycopg2 import execute_values
 ############------------ GLOBAL ------------############
 Poll = Tuple[int, str, str]
 Vote = Tuple[str, int]
+Option = Tuple[int, str, int]
 PollWithOption = Tuple[int, str, str, int, str, int]
 PollResults = Tuple[int, str, int, float]
 
