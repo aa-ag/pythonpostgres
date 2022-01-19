@@ -91,10 +91,9 @@ SELECT_ALL_POLLS = """
 SELECT * FROM polls;
 """
 
-SELECT_POLLS_WITH_OPTIONS = """
-SELECT * FROM polls
-JOIN options ON polls.id = options.poll_id
-WHERE polls.id = %s;
+SELECT_POLLS_OPTIONS = """
+SELECT * FROM options
+WHERE poll_id = %s;
 """
 
 SELECT_LATEST_POLL = """
