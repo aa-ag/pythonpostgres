@@ -1,4 +1,5 @@
 ############------------ IMPORT(S) ------------############
+from sqlite3 import connect
 from typing import List, Tuple
 from psycopg2 import execute_values
 
@@ -25,6 +26,12 @@ def get_polls(connection) -> List[Poll]:
         cursor.execute(SELECT_ALL_POLLS)
         return cursor.fetchall()
 
+
+def get_poll(connection, poll_id: int) -> Poll:
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(SELECT_POLL, (poll_id))
+        return cursor.fetchone()
 
 def get_latest_poll(connection) -> List[PollWithOption]:
     with connection:
