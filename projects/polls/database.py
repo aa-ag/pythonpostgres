@@ -70,6 +70,14 @@ def add_poll_vote(connection, username: str, option_id: int):
         cursor.execute(INSERT_VOTE, (username, option_id))
 
 
+def get_option(connection, option_id: int) -> Option:
+    pass
+
+
+def add_option(connection, option_text, poll_id: int):
+    pass
+
+
 ############------------ QUERIES(S) ------------############
 CREATE_POLLS = """
 CREATE TABLE IF NOT EXISTS polls 
