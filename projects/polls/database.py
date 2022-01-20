@@ -66,7 +66,11 @@ def get_option(connection, option_id: int) -> Option:
 
 
 def add_option(connection, option_text, poll_id: int):
-    pass
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute(INSERT_POLL_RETURN_ID, (option_text, poll_id))
+        option_id = cursor.fetchone()[0]
+        return option_id
 
 
 def get_votes_for_options(connection, option_id: int) -> List[Vote]:
