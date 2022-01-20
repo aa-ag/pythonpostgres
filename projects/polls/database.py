@@ -8,7 +8,6 @@ from psycopg2 import execute_values
 Poll = Tuple[int, str, str]
 Vote = Tuple[str, int]
 Option = Tuple[int, str, int]
-PollResults = Tuple[int, str, int, float]
 
 
 ############------------ FUNCTION(S) ------------############
