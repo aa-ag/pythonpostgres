@@ -52,9 +52,7 @@ def create_poll(connection, title: str, owner: str, options: List[str]):
         cursor.execute(INSERT_POLL_RETURN_ID, (title, owner))
 
         poll_id = cursor.fetchone()[0]
-        option_values = [(option_text, poll_id) for option_text in options]
-        
-        execute_values(cursor, INSERT_OPTION, option_values)
+        return poll_id
 
 
 def add_poll_vote(connection, username: str, option_id: int):
