@@ -78,6 +78,10 @@ def add_option(connection, option_text, poll_id: int):
     pass
 
 
+def get_votes_for_options(connection, option_id: int) -> List[Vote]:
+    pass
+
+
 ############------------ QUERIES(S) ------------############
 CREATE_POLLS = """
 CREATE TABLE IF NOT EXISTS polls 
