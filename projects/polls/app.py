@@ -1,5 +1,6 @@
 ############------------ IMPORTS ------------############
 import option
+import poll
 import psycopg2
 from psycopg2.errors import DivisionByZero
 import database
