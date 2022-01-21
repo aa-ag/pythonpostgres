@@ -1,9 +1,6 @@
-from socket import create_connection
-from sqlite3 import connect
 from typing import List
-from models import Option
 import database
-
+import option
 
 class Poll:
     def __init__(self, title: str, owner: str, _id: int = None):
@@ -21,13 +18,13 @@ class Poll:
         self.id = new_poll_id
 
     def add_option(self, option_text: str):
-        Option(option_text, self.id).save()
+        option.Option(option_text, self.id).save()
 
     def options(self) -> List[Option]:
         connection = create_connection()
         options = database.get_poll_opions(connection, self.id)
         connection.close()
-        return [Option(option[1], option[2], option[0]) for option in options]
+        return [option.Option(option[1], option[2], option[0]) for option in options]
 
     @classmethod
     def get(cls, poll_id) -> "Poll":
