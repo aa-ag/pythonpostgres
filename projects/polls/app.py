@@ -49,6 +49,13 @@ def show_poll_votes():
     votes_per_option = [len(options.votes) for option in options]
     total_votes = sum(votes_per_option)
 
+    try:
+        for option, votes in zip(options, votes_per_option):
+            percentage = votes / total_votes * 100
+            print(f"{option.text} got {votes} = {percentage}%")
+    except ZeroDivisionError:
+        print("empty poll")
+
 
 def randomize_poll_winner():
     poll_id = int(input("Enter poll id of poll you'd like to pick a winner for: "))
