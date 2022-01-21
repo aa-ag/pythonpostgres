@@ -4,6 +4,7 @@ import poll
 import psycopg2
 from psycopg2.errors import DivisionByZero
 import database
+from projects.polls.database import Option
 import settings
 
 
@@ -29,6 +30,11 @@ def prompt_vote_poll():
     poll_id = int(input("Enter poll would you like to vote on: "))
     poll_options = poll.Poll.get(poll_id).options
     print_poll_options(poll_options)
+
+    option_id = int(input("id:"))
+    username = input("username:")
+    Option.get(option_id).vote(username)
+
 
 def print_poll_options(poll_options):
     for option in poll_options:
