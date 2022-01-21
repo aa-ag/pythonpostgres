@@ -7,6 +7,7 @@ import database
 from projects.polls.database import Option
 import settings
 from typing import List
+import random
 
 
 ############------------ FUNCTION(S) ------------############
