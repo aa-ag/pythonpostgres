@@ -6,6 +6,7 @@ from psycopg2.errors import DivisionByZero
 import database
 from projects.polls.database import Option
 import settings
+from typing import List
 
 
 ############------------ FUNCTION(S) ------------############
@@ -36,9 +37,9 @@ def prompt_vote_poll():
     Option.get(option_id).vote(username)
 
 
-def print_poll_options(poll_options):
+def print_poll_options(poll_options: List[Option]):
     for option in poll_options:
-        print(f"{option[3]}: {option[4]}")
+        print(f"{option.id}: {option.text}")
 
 
 def show_poll_votes():
