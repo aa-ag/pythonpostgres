@@ -44,13 +44,10 @@ def print_poll_options(poll_options: List[Option]):
 
 def show_poll_votes():
     poll_id = int(input("Enter poll you'd like to see votes for."))
-    try:
-        poll_and_votes = database.get_poll_and_results(connection, poll_id)
-    except DivisionByZero:
-        print("Poll has received no votes yet")
-    else:
-        for _id, option_text, count, percentage in poll_and_votes:
-            print(f"{option_text} got {count} votes ({percentage:.2f}% of total)")
+    poll_showed = poll.Poll.get(poll_id)
+    options = poll_showed.options
+    votes_per_option = [len(options.votes) for option in options]
+    total_votes = sum(votes_per_option)
 
 
 def randomize_poll_winner():
