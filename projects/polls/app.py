@@ -1,4 +1,5 @@
 ############------------ IMPORTS ------------############
+from socket import create_connection
 import psycopg2
 from psycopg2.errors import DivisionByZero
 import database
@@ -6,7 +7,7 @@ import settings
 
 
 ############------------ FUNCTION(S) ------------############
-def prompt_create_poll(connection):
+def prompt_create_poll():
     poll_title = input("Enter poll title: ")
     poll_owner = input("Enter poll owner: ")
     options = list()
@@ -17,14 +18,14 @@ def prompt_create_poll(connection):
     database.create_poll(connection, poll_title, poll_owner, options)
 
 
-def list_open_polls(connection):
+def list_open_polls():
     polls = database.get_polls(connection)
 
     for id_, title, owner in polls:
         print(f"{id_}: {title}, created by {owner}")
 
 
-def prompt_vote_poll(connection):
+def prompt_vote_poll():
     poll_id = int(input("Enter poll would you like to vote on: "))
     poll_options = database.get_poll_details(connection, poll_id)
     print_poll_options(poll_options)
@@ -39,7 +40,7 @@ def print_poll_options(poll_options):
         print(f"{option[3]}: {option[4]}")
 
 
-def show_poll_votes(connection):
+def show_poll_votes():
     poll_id = int(input("Enter poll you'd like to see votes for."))
     try:
         poll_and_votes = database.get_poll_and_results(connection, poll_id)
@@ -50,7 +51,7 @@ def show_poll_votes(connection):
             print(f"{option_text} got {count} votes ({percentage:.2f}% of total)")
 
 
-def randomize_poll_winner(connection):
+def randomize_poll_winner():
     poll_id = int(input("Enter poll id of poll you'd like to pick a winner for: "))
     poll_options = database.get_poll_details(connection, poll_id)
     print_poll_options(poll_options)
@@ -62,11 +63,11 @@ def randomize_poll_winner(connection):
 
 def app_run():
     database_uri = settings.postgres_url
-    connection = psycopg2.connect(database_uri)
+    connection = create_connection()
 
     while (selection := input(MENU_PROMPT)) != "6":
         try:
-            MENU_OPTIONS[selection](connection)
+            MENU_OPTIONS[selection]()
         except KeyError:
             print("Invalid input selected. Try again.")
 
