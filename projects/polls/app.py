@@ -22,9 +22,7 @@ def list_open_polls():
     open_polls = poll.Poll.all()
 
     for open_poll in open_polls:
-        print(f"{open_poll.id}: " \ 
-            "{open_poll.title}, created by" \
-                " {open_poll.owner}")
+        print(f"{open_poll.id}: {open_poll.title}, created by {open_poll.owner}")
 
 
 def prompt_vote_poll():
