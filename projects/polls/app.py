@@ -11,12 +11,11 @@ import settings
 def prompt_create_poll():
     poll_title = input("Enter poll title: ")
     poll_owner = input("Enter poll owner: ")
-    options = list()
+    new_poll = poll.Poll(poll_title, poll_owner)
+    new_poll.save()
 
     while new_option := input(NEW_OPTION_PROMPT):
-        options.append(new_option)
-
-    database.create_poll(connection, poll_title, poll_owner, options)
+        new_poll.add_option(new_option)
 
 
 def list_open_polls():
