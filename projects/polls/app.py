@@ -19,10 +19,12 @@ def prompt_create_poll():
 
 
 def list_open_polls():
-    polls = database.get_polls(connection)
+    open_polls = poll.Poll.all()
 
-    for id_, title, owner in polls:
-        print(f"{id_}: {title}, created by {owner}")
+    for open_poll in open_polls:
+        print(f"{open_poll.id}: " \ 
+            "{open_poll.title}, created by" \
+                " {open_poll.owner}")
 
 
 def prompt_vote_poll():
