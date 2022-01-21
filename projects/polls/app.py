@@ -60,11 +60,12 @@ def show_poll_votes():
 
 def randomize_poll_winner():
     poll_id = int(input("Enter poll id of poll you'd like to pick a winner for: "))
-    poll_options = database.get_poll_details(connection, poll_id)
+    poll_options = poll.Poll.get(poll_id).options
     print_poll_options(poll_options)
 
     option_id = int(input("Enter which is the winning option, we'll pick a random winner from votes: "))
-    winner = database.get_random_poll_vote(connection, option_id)
+    votes = option.Option.get(option_id).votes
+    winner = random.choice(votes)
     print(f"The randomly selected winner is {winner[0]}.")
 
 
