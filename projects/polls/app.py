@@ -8,6 +8,7 @@ from projects.polls.database import Option
 import settings
 from typing import List
 import random
+from connection_pool import pool
 
 
 ############------------ FUNCTION(S) ------------############
@@ -71,7 +72,7 @@ def randomize_poll_winner():
 
 def app_run():
     database_uri = settings.postgres_url
-    connection = create_connection()
+    connection = pool.getconn()
 
     while (selection := input(MENU_PROMPT)) != "6":
         try:
