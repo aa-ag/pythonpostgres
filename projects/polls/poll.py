@@ -1,6 +1,7 @@
 from typing import List
 import database
 import option
+from connections import pool
 
 class Poll:
     def __init__(self, title: str, owner: str, _id: int = None):
