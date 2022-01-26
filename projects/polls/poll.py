@@ -17,7 +17,7 @@ class Poll:
     def save(self):
         connection = pool.getconn()
         new_poll_id = database.create_poll(connection, self.title, self.owner)
-        connection.close()
+        pool.putconn(connection)
         self.id = new_poll_id
 
     def add_option(self, option_text: str):
@@ -26,26 +26,26 @@ class Poll:
     def options(self) -> List[Option]:
         connection = pool.getconn()
         options = database.get_poll_opions(connection, self.id)
-        connection.close()
+        pool.putconn(connection)
         return [option.Option(option[1], option[2], option[0]) for option in options]
 
     @classmethod
     def get(cls, poll_id) -> "Poll":
         connection = pool.getconn()
         poll = database.get_poll(connection, poll_id)
-        connection.close()
+        pool.putconn(connection)
         return cls(poll[1], poll[2], poll[0])
 
     @classmethod
     def all(cls) -> List["Poll"]:
         connection = pool.getconn()
         polls = database.get_polls(connection)
-        connection.close()
+        pool.putconn(connection)
         return [cls(poll[1], poll[2], poll[0]) for poll in polls]
 
     @classmethod
     def latest(cls) -> "Poll":
         connection = pool.getconn()
         poll = database.get_latest_poll()
-        connection.close()
+        pool.putconn(connection)
         return cls(poll[1], poll[2], poll[0])
