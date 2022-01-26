@@ -1,5 +1,5 @@
 from typing import List
-from connection import create_connection
+from connections import pool
 import database
 
 
