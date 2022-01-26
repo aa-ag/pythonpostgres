@@ -2,7 +2,7 @@ from cmath import polar
 from typing import List
 import database
 import option
-from connections import pool
+from connection_pool import pool
 from option import Option
 
 class Poll:
