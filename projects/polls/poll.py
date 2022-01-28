@@ -2,7 +2,7 @@ from cmath import polar
 from typing import List
 import database
 import option
-from connection_pool import pool
+from connection_pool import get_connection
 from option import Option
 
 class Poll:
@@ -15,37 +15,32 @@ class Poll:
         return f"Poll {self.title!r}, {self.owner!r}, {self._id!r}"
 
     def save(self):
-        connection = pool.getconn()
+        connection = get_connection()
         new_poll_id = database.create_poll(connection, self.title, self.owner)
-        pool.putconn(connection)
         self.id = new_poll_id
 
     def add_option(self, option_text: str):
         option.Option(option_text, self.id).save()
 
     def options(self) -> List[Option]:
-        connection = pool.getconn()
+        connection = get_connection()
         options = database.get_poll_opions(connection, self.id)
-        pool.putconn(connection)
         return [option.Option(option[1], option[2], option[0]) for option in options]
 
     @classmethod
     def get(cls, poll_id) -> "Poll":
-        connection = pool.getconn()
+        connection = get_connection()
         poll = database.get_poll(connection, poll_id)
-        pool.putconn(connection)
         return cls(poll[1], poll[2], poll[0])
 
     @classmethod
     def all(cls) -> List["Poll"]:
-        connection = pool.getconn()
+        connection = get_connection()
         polls = database.get_polls(connection)
-        pool.putconn(connection)
         return [cls(poll[1], poll[2], poll[0]) for poll in polls]
 
     @classmethod
     def latest(cls) -> "Poll":
-        connection = pool.getconn()
+        connection = get_connection()
         poll = database.get_latest_poll()
-        pool.putconn(connection)
         return cls(poll[1], poll[2], poll[0])
