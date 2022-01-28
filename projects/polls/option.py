@@ -14,7 +14,7 @@ class Option:
 
     def save(self):
         connection = pool.getconn()
-        new_option_id = database.add_option(connection, option_id)
+        new_option_id = database.add_option(connection, self.option_id)
         pool.putconn(connection)
         self.id = new_option_id
 
