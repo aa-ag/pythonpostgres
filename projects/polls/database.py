@@ -2,6 +2,7 @@
 from sqlite3 import connect
 from typing import List, Tuple
 from psycopg2 import execute_values
+from contextlib import contextmanager
 
 
 ############------------ GLOBAL ------------############
