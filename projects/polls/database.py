@@ -1,5 +1,5 @@
 ############------------ IMPORT(S) ------------############
-from sqlite3 import connect
+from sqlite3 import Cursor, connect
 from typing import List, Tuple
 from psycopg2 import execute_values
 from contextlib import contextmanager
@@ -12,6 +12,13 @@ Option = Tuple[int, str, int]
 
 
 ############------------ FUNCTION(S) ------------############
+@contextmanager
+def get_connection(connection):
+    with connection:
+        cursor = connection.cursor()
+        yield cursor
+
+
 def create_tables(connection):
     with connection:
         cursor = connection.cursor()
