@@ -13,50 +13,44 @@ Option = Tuple[int, str, int]
 
 ############------------ FUNCTION(S) ------------############
 @contextmanager
-def get_connection(connection):
+def get_cursor(connection):
     with connection:
         cursor = connection.cursor()
         yield cursor
 
 
 def create_tables(connection):
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(CREATE_POLLS)
         cursor.execute(CREATE_OPTIONS)
         cursor.execute(CREATE_VOTES)
 
 
 def get_polls(connection) -> List[Poll]:
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(SELECT_ALL_POLLS)
         return cursor.fetchall()
 
 
 def get_poll(connection, poll_id: int) -> Poll:
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(SELECT_POLL, (poll_id))
         return cursor.fetchone()
 
 def get_latest_poll(connection) -> List[PollWithOption]:
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(SELECT_LATEST_POLL)
         return cursor.fetchall()
 
 
 def get_poll_options(connection, poll_id: int) -> List[Option]:
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(SELECT_POLLS_OPTIONS, (poll_id,))
         return cursor.fetchall()
 
 
 def create_poll(connection, title: str, owner: str, options: List[str]):
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(INSERT_POLL_RETURN_ID, (title, owner))
 
         poll_id = cursor.fetchone()[0]
@@ -64,8 +58,7 @@ def create_poll(connection, title: str, owner: str, options: List[str]):
 
 
 def add_poll_vote(connection, username: str, option_id: int):
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(INSERT_VOTE, (username, option_id))
 
 
@@ -74,8 +67,7 @@ def get_option(connection, option_id: int) -> Option:
 
 
 def add_option(connection, option_text, poll_id: int):
-    with connection:
-        cursor = connection.cursor()
+    with get_cursor(connection) as cursor:
         cursor.execute(INSERT_POLL_RETURN_ID, (option_text, poll_id))
         option_id = cursor.fetchone()[0]
         return option_id
