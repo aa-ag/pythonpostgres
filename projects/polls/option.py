@@ -27,6 +27,7 @@ class Option:
 
     def vote(self, username: str):
         connection = get_connection()
+        current_datetime_utc = datetime.datetime.now(tz=pytz.utc)
         database.add_poll_vote(connection, self.id)
 
     @property
