@@ -28,7 +28,8 @@ class Option:
     def vote(self, username: str):
         connection = get_connection()
         current_datetime_utc = datetime.datetime.now(tz=pytz.utc)
-        database.add_poll_vote(connection, self.id)
+        current_timestamp = current_datetime_utc.timestamp()
+        database.add_poll_vote(connection, self.id, current_timestamp)
 
     @property
     def votes(self) -> List[database.Vote]:
