@@ -115,7 +115,7 @@ INSERT INTO options (option_text, poll_id) VALUES %s;
 """
 
 INSERT_VOTE = """
-INSERT INTO votes (username, option_id) VALUES (%s, %s);
+INSERT INTO votes (username, option_id, vote_timestamp) VALUES (%s, %s, %sß);
 """
 
 INSERT_POLL_RETURN_ID = "INSERT INTO polls (title, owner_username) VALUES (%s, %s) RETURNING id;"
