@@ -56,9 +56,9 @@ def create_poll(connection, title: str, owner: str, options: List[str]):
         return poll_id
 
 
-def add_poll_vote(connection, username: str, option_id: int):
+def add_poll_vote(connection, username: str, option_id: int, vote_timestamp: float):
     with get_cursor(connection) as cursor:
-        cursor.execute(INSERT_VOTE, (username, option_id))
+        cursor.execute(INSERT_VOTE, (username, option_id, vote_timestamp))
 
 
 def get_option(connection, option_id: int) -> Option:
