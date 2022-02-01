@@ -1,6 +1,6 @@
 ############------------ IMPORTS ------------############
-import option
-import poll
+import models.option
+import models.poll
 import psycopg2
 from psycopg2.errors import DivisionByZero
 import database
