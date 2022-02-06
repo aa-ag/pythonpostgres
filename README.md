@@ -9,3 +9,4 @@ Next to check out polling app tutorial [here](https://www.youtube.com/watch?v=xG
 - `conda activate pythonpostgres`
 - `conda install -c conda-forge mypy`
 - `conda install -c conda-forge psycopg2-binary`
+- `conda install -c conda-forge matplotlib`
